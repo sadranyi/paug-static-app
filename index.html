@@ -11,8 +11,15 @@
 <body>
   <main>
     <h1>PAUG ROCKS !!!</h1>
-    <p>I miss you guys...</p>
+    <p>Loading content from the API: <strong id="name">...</strong></p>
   </main>
+
+  <script>
+    (async function() {
+      let { text } = await( await fetch(`/api/message`)).json();
+      document.querySelector('#name').textContent = text;
+    }())
+  </script>
 </body>
 
 </html>
